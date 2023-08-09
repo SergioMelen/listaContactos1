@@ -1,0 +1,40 @@
+// Lista de contactos
+let listaContactos = ["Lucho Diaz", "Juan Cuadrado", "Radamel Falcao"];
+
+// Añadir un nuevo contacto a la lista
+function agregarContacto(nombreCompleto) {
+  if (nombreCompleto && nombreCompleto.trim() !== "") {
+    listaContactos.push(nombreCompleto);
+  }
+}
+// Borrar un contacto existente de la lista
+
+function borrarContacto(nombreCompleto) {
+  let indice = listaContactos.indexOf(nombreCompleto);
+  listaContactos = listaContactos.filter(
+    (contacto) => contacto !== nombreCompleto
+  );
+}
+
+// Imprimir los contactos en la consola
+function imprimirContactos() {
+  console.log("Lista de contactos:");
+  for (let i = 0; i < listaContactos.length; i++) {
+    console.log(listaContactos[i]);
+  }
+}
+
+console.log("Contactos iniciales:");
+imprimirContactos();
+
+console.log("\nAgregando nuevo contacto...");
+agregarContacto("Cristiano Ronaldo");
+
+console.log("\nContactos después de agregar:");
+imprimirContactos();
+
+console.log("\nBorrar contacto...");
+borrarContacto("Juan Cuadrado");
+
+console.log("\nContactos después de borrar:");
+imprimirContactos();

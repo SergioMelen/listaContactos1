@@ -73,4 +73,5 @@ function imprimirContactos(id) {
     console.log(persona);
   }
 }
+
 imprimirContactos();

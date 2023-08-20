@@ -1,8 +1,8 @@
 // Lista de contactos
 let persona1 = {
   id: 1,
-  nombres: "Lucho",
-  apellidos: "Diaz",
+  nombre: "Lucho",
+  apellido: "Diaz",
   telefono: "11111111",
   ubicaciones: {
     ciudad: "Cartagena",
@@ -11,8 +11,8 @@ let persona1 = {
 };
 let persona2 = {
   id: 2,
-  nombres: "Juan",
-  apellidos: "Cuadrado",
+  nombre: "Juan",
+  apellido: "Cuadrado",
   telefono: "22222222",
   ubicaciones: {
     ciudad: "Barranquilla",
@@ -21,8 +21,8 @@ let persona2 = {
 };
 let persona3 = {
   id: 3,
-  nombres: "Radamel",
-  apellidos: "Falcao",
+  nombre: "Radamel",
+  apellido: "Falcao",
   telefono: "3333333",
   ubicaciones: {
     ciudad: "Santa Marta",
@@ -73,4 +73,35 @@ function imprimirContactos(id) {
     console.log(persona);
   }
 }
+
+// Actualizar contacto
+
+function actualizarContacto(id, nombre, apellido, telefono, ciudad, direccion) {
+  const contactIndex = listaContactos.findIndex((contact) => contact.id === id);
+  if (contactIndex !== -1) {
+    const actualizarContacto = {
+      ...listaContactos[contactIndex],
+      nombre: nombre || listaContactos[contactIndex].nombre,
+      apellido: apellido || listaContactos[contactIndex].apellido,
+      telefono: telefono || listaContactos[contactIndex].telefono,
+      ubicacion: {
+        ciudad: ciudad || listaContactos[contactIndex].ubicacion.ciudad,
+        direccion:
+          direccion || listaContactos[contactIndex].ubicacion.direccion,
+      },
+    };
+    listaContactos[contactIndex] = actualizarContacto;
+    return "Contacto actualizado correctamente";
+  } else {
+    return "No se pudo actualizar el contacto";
+  }
+}
+
+function imprimirContactos() {
+  console.log(listaContactos);
+}
+imprimirContactos();
+
+actualizarContacto();
+
 imprimirContactos();
